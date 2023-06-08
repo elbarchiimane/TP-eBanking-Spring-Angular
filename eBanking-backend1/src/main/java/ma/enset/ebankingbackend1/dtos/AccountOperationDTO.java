@@ -1,23 +1,21 @@
-package ma.enset.ebankingbackend1.entities;
+package ma.enset.ebankingbackend1.dtos;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.enset.ebankingbackend1.entities.BankAccount;
 import ma.enset.ebankingbackend1.enums.OperationType;
 
 import java.util.Date;
-@Entity
-@Data @AllArgsConstructor @NoArgsConstructor
-public class AccountOperation {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
+@Data
+public class AccountOperationDTO {
     private Long id;
     private Date operationDate;
     private double amount;
-    @Enumerated(EnumType.STRING)
     private OperationType type;
-    @ManyToOne
-    private BankAccount bankAccount;
     private String description;
 }
 
